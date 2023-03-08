@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Models\Animals\Animal.cs" />
-    <Compile Include="Models\Animals\AnimalThatCanBeGroomed.cs" />
     <Compile Include="Models\Animals\Lion.cs" />
     <Compile Include="Models\Animals\Zebra.cs" />
     <Compile Include="Models\Animals\Rabbit.cs" />
@@ -51,6 +50,7 @@
     <Compile Include="Services\FeedingScheduler.cs" />
     <Compile Include="Services\GroomingScheduler.cs" />
 	<Compile Include="Services\Scheduler.cs" />
+	<Compile Include="Models\Animals\GroomingBehaviour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

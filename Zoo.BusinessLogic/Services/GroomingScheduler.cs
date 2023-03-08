@@ -28,7 +28,7 @@ namespace Zoo.BusinessLogic.Services
 
 		protected override void RunJob(Keeper keeper, Animal animal)
 		{
-			var groomableAnimal = animal as AnimalThatCanBeGroomed;
+			var groomableAnimal = animal as IGroomable;
 
 			if (groomableAnimal != null)
 			{
