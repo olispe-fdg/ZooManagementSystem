@@ -31,7 +31,7 @@ namespace Zoo.ConsoleApp
 				new Keeper(otherAnimals)
 			};
 
-			Scheduler[] schedulers = { FeedingScheduler.Instance, GroomingScheduler.Instance };
+			Scheduler[] schedulers = { FeedingScheduler.Instance, GroomingScheduler.Instance, MuckSweepingScheduler.Instance };
 
 			while (true)
 			{

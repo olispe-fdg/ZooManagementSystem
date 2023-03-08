@@ -2,9 +2,10 @@
 
 namespace Zoo.BusinessLogic.Models.Animals
 {
-	public class Zebra : Animal, IGroomable
+	public class Zebra : Animal, IGroomable, ICanHaveMuckSweptOut
 	{
 		private GroomingBehaviour groomingBehaviour = new GroomingBehaviour();
+		private MuckSweepingBehaviour muckSweepingBehaviour = new MuckSweepingBehaviour();
 
 		public Zebra(DateTime dateOfBirth) : base(dateOfBirth)
 		{
@@ -15,9 +16,14 @@ namespace Zoo.BusinessLogic.Models.Animals
 			groomingBehaviour.Groom();
 		}
 
+		public void SweepMuck()
+		{
+			muckSweepingBehaviour.SweepMuck();
+		}
+
 		public override string ToString()
 		{
-			return $"{base.ToString()}; {groomingBehaviour.ToString()}";
+			return $"{base.ToString()}; {groomingBehaviour.ToString()}; {muckSweepingBehaviour.ToString()}";
 		}
 	}
 }
