@@ -4,41 +4,36 @@ using Zoo.BusinessLogic.Models.Animals;
 
 namespace Zoo.BusinessLogic.Services
 {
-  public class GroomingScheduler
-  {
-    private static GroomingScheduler instance;
+	public class GroomingScheduler : Scheduler
+	{
+		private static GroomingScheduler instance;
 
-    public static GroomingScheduler Instance
-    {
-      get
-      {
-        if (instance == null)
-        {
-          instance = new GroomingScheduler();
-        }
+		public static GroomingScheduler Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					instance = new GroomingScheduler();
+				}
 
-        return instance;
-      }
-    }
+				return instance;
+			}
+		}
 
-    private GroomingScheduler()
-    {
-    }
+		protected override string GetMessage()
+		{
+			return "Grooming the animals...";
+		}
 
-    public void AssignGroomingJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals)
-    {
-      foreach (var keeper in keepers)
-      {
-        foreach (var animal in keeper.GetResponsibleAnimals())
-        {
-          var groomableAnimal = animal as AnimalThatCanBeGroomed;
+		protected override void RunJob(Keeper keeper, Animal animal)
+		{
+			var groomableAnimal = animal as AnimalThatCanBeGroomed;
 
-          if (groomableAnimal != null)
-          {
-            keeper.GroomAnimal(groomableAnimal);
-          }
-        }
-      }
-    }
-  }
+			if (groomableAnimal != null)
+			{
+				keeper.GroomAnimal(groomableAnimal);
+			}
+		}
+	}
 }
